@@ -3,12 +3,11 @@
   "description": "An accessibility extension that supplies a Pomodoro timer with built-oin 20-20-20 rule.",
   "version": "1.0.0",
   "manifest_version": 3,
-  "content_scripts": [
-    {
-      "matches": ["<all_urls>"],
-      "js": [
-        "content.js"
-      ]
-    }
-  ]
+  "permissions": [],
+  "author": "Andrew Stephens",
+  "short_name": "Pom20",
+  "action": {
+    "default_popup": "js/index.html",
+    "default_title": "React Chrome Extension"
+  }
 }
