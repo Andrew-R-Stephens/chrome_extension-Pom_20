@@ -1,0 +1,14 @@
+{
+  "name": "Pom20 Chrome Extension",
+  "description": "An accessibility extension that supplies a Pomodoro timer with built-oin 20-20-20 rule.",
+  "version": "1.0.0",
+  "manifest_version": 1,
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}
