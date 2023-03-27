@@ -39,5 +39,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "ts-loader": "^9.4.2",
+    "webpack": "^5.76.3",
+    "webpack-cli": "^5.0.1"
   }
 }
