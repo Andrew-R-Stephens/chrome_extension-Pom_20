@@ -10,6 +10,14 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.mjs$/,
+                type: 'javascript/auto',
+                exclude: /node_modules/,
+                resolve: {
+                    fullySpecified: false,
+                },
+            },
+            {
                 test: /\.tsx?$/,
                 use: [
                     {
@@ -27,7 +35,7 @@ module.exports = {
                     "style-loader",
                     "css-loader"
                 ]
-            },
+            }
         ],
     },
     plugins: [
@@ -39,7 +47,7 @@ module.exports = {
         ...getHtmlPlugins(["index"]),
     ],
     resolve: {
-        extensions: [".tsx", ".ts", ".js"],
+        extensions: [".tsx", ".ts", ".js", ".mjs", ".webpack.js", ".web.js", ".json"],
     },
     output: {
         path: path.join(__dirname, "dist/js"),
