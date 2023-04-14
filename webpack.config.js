@@ -1,6 +1,7 @@
 const path = require("path");
 const HTMLPlugin = require("html-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin")
+require("html-webpack-plugin");
 
 module.exports = {
     entry: {
@@ -52,16 +53,29 @@ module.exports = {
     output: {
         path: path.join(__dirname, "dist/js"),
         filename: "[name].js",
+        publicPath: "/"
     },
+    devServer: {
+        historyApiFallback: true,
+        //contentBase: './'
+    },
+    devtool: 'cheap-module-source-map'
 };
 
 function getHtmlPlugins(chunks) {
     return chunks.map(
         (chunk) =>
             new HTMLPlugin({
-                title: "React extension",
+                title: "Pom20 Chrome Extension",
                 filename: `${chunk}.html`,
                 chunks: [chunk],
-            })
+                meta: [{
+                    'http-equiv': 'content-security-policy',
+                    content:/*
+                        'upgrade-insecure-requests;' +*/
+                        'script-src-elem \'self\' chrome-extension://blifafpihkfeiailealfbaebjpeinapa/js/index.js; ' +
+                        'script-src \'self\' chrome-extension://blifafpihkfeiailealfbaebjpeinapa/js/index.js; '
+                }]
+        })
     );
 }
